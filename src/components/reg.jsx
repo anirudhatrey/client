@@ -6,10 +6,11 @@ export default function Reg(props) {
     const [Email,changeEmail]=useState('');
     const [Password,changePassword]=useState('');
     const [rePassword,changerePassword]=useState('');
+    const [Pnum,changePnum]=useState('');
     const handleSubmit =(e)=>{
          e.preventDefault();
-         const newUser={userName,Email,Password};
-         fetch('localhost:3002/users',{
+         const newUser={userName,Email,Password,Pnum};
+         fetch('http://localhost:3000/users/',{
              method: 'POST',
              headers:{"Content-Type":"application/json"},
              body: JSON.stringify(newUser)
@@ -27,47 +28,49 @@ export default function Reg(props) {
                             <h2>Create account</h2>
                         </div>
                         <div className="form-group">
-                            <label className="control-label" for="signupName">
+                            <label className="control-label" >
                                 Your name
                             </label>
                             <input
                                 id="signupName"
                                 type="text"
-                                maxlength="50"
+                                maxLength="50"
                                 className="form-control"
                                 value={userName}
                                 onChange={(e)=>{changeName(e.target.value)}} />
                         </div>
                         <div className="form-group">
-                            <label className="control-label" for="signupEmail">
+                            <label className="control-label" >
                                 Email
                             </label>
                             <input
                                 id="signupEmail"
                                 type="email"
-                                maxlength="50"
+                                maxLength="50"
                                 className="form-control"
                                 value={Email}
                                 onChange={(e)=>{changeEmail(e.target.value)}} />
                         </div>
                         <div className="form-group">
-                            <label className="control-label" for="signupEmailagain">
-                                Email again
+                            <label className="control-label" >
+                                Phone Number
                             </label>
                             <input
                                 id="signupEmailagain"
-                                type="email"
-                                maxlength="50"
-                                className="form-control" />
+                                type="text"
+                                maxLength="50"
+                                className="form-control" 
+                                value={Pnum}
+                                onChange={(e)=>{changePnum(e.target.value)}} />
                         </div>
                         <div className="form-group">
-                            <label className="control-label" for="signupPassword">
+                            <label className="control-label" >
                                 Password
                             </label>
                             <input
                                 id="signupPassword"
                                 type="password"
-                                maxlength="25"
+                                maxLength="25"
                                 className="form-control"
                                 placeholder="at least 6 characters"
                                 length="40" 
@@ -75,13 +78,13 @@ export default function Reg(props) {
                                 onChange={(e)=>{changePassword(e.target.value)}} />
                         </div>
                         <div className="form-group">
-                            <label className="control-label" for="signupPasswordagain">
+                            <label className="control-label" >
                                 Password again
                             </label>
                             <input
                                 id="signupPasswordagain"
                                 type="password"
-                                maxlength="25"
+                                maxLength="25"
                                 className="form-control"
                                 value={rePassword}
                                 onChange={(e)=>{changerePassword(e.target.value)}}  />

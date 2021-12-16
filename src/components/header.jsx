@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./login";
+import auth from "../auth";
 
-export default function Header() {
+export default function Header( props) {
   return (
     <header id="container">
       <div id="nav-bar">
@@ -30,7 +31,11 @@ export default function Header() {
           <div className="nav-right">
             <div id="nav-tools">
               <a href="/">Language</a>
-              <Link to="/login">Log in</Link>
+              <a   onClick={() => {
+          props.setToken();
+                      props.history.push("/login");
+         
+        }}>Logout</a>
               <a href="/">Cart</a>
             </div>
           </div>

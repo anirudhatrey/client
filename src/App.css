@@ -10,7 +10,11 @@
 	--border-radius: 0.2rem;
 
 }
-
+.main-section-banner {
+    background-image: url("https://i.ibb.co/JnmTD12/banner.jpg");
+    background-position: center;
+    background-size: cover;
+}
 a {
 	text-decoration: none;
 	color: white;
